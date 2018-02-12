@@ -1,0 +1,21 @@
+//在一般创建自定义类型的最常用的方式
+function Person(name,age,job){
+	this.name=name;
+	this.age=age;
+	this.job=job;
+	this.friends=["shelby","Counrt"];
+}
+
+Person.prototype={
+	constructor:Person,
+	sayName:function(){
+		alert(this.name);
+	};
+}
+
+var person1=new Person("fourous","29","software");
+var person2=new Person("Bob","27","Doctor");
+
+person1.friend.push("Van");
+alert("person1.friends");//fourosu,Bob,Van
+alert("person2.friends");//fourous,Bob

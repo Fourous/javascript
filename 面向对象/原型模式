@@ -1,0 +1,62 @@
+function Person(){
+}
+Person.prototype.name="fourous";
+Person.prototype.age=19;
+Person.prototype.job="software";
+Person.prototype.sayName=function(){
+	alert(this.name);
+}
+
+var person1=new Person();
+Person1.sayName();
+
+var person2=new Person();
+person2.sayName();
+
+alert(person1.sayName()==person2.sayName());//true
+
+
+//为对象添加一个属性时候,会覆盖原型属性
+person1.name="Bob";
+alert(person1.name);//Bob
+alert(person2.name);//fourous
+delete person1.name;
+alert(person1.name);
+//删除属性后,会显示原型属性
+
+
+//简化的原型写法
+function Person(){
+}
+
+Person.prototype={
+	name:"fourous",
+	age:29,
+	job:"software engeer",
+	sayName:function(){
+		alert(this.name);
+	}
+};
+
+var friend=new Person;
+
+
+//这里注意一点,可以先创建实例然后在修改原型,但是不能修改整个构造函数
+var friend=new Person();
+Person.prototype.sayHi(){
+	alert("Hi");
+}
+
+//上面这是可以的,但是下面这是不行的
+var friend =new Person();
+Person.prototype={
+	name:"Lili",
+	age=20,
+	job="student";
+};
+
+
+
+
+
+
